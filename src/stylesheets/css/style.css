@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body .rtl-direction {
+  direction: rtl;
+}
+
+:root {
+  --color-page-background: white;
+  --color-text: black;
+  --color-border: black;
+  --color-article-background: white;
+  --color-article-shadow: rgba(0, 0, 0, 0.15);
+}
+
+.dark {
+  --color-page-background: black;
+  --color-text: white;
+  --color-border: white;
+  --color-article-background: #e5e5e5;
+  --color-article-shadow: rgba(0, 0, 0, 0.15);
+}
+
+* {
+  transition: all 0.15s ease;
+}
+
+body {
+  background-color: var(--color-page-background);
+  font: 1.1em/1.4 Dosis;
+  color: var(--color-text);
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  max-width: 40rem;
+  margin: auto;
+  padding: 1rem;
+}
+
+article {
+  padding: 2rem;
+  background-color: var(--color-article-background);
+  box-shadow: 6px 6px 0 0 var(--color-article-shadow);
+}
+
+h1 {
+  color: unset;
+}
+
+.switch {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  height: 3rem;
+  width: 3rem;
+  background-color: var(--color-black);
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  border-radius: 50%;
+}
+
+.container {
+  margin: 5px 10px;
+}
+
+/************MEDIA QUERY ********************/
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px 10px;
+  padding: 0;
+  display: flex;
+}
+
+ul li {
+  margin: 0px 10px;
+}
+
+.bg-light-gray {
+  background-color: #e5e5e5;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+input[type="submit"], button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover, button:hover {
+  color: black;
+  background-color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .right__side--nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .right__side--nav .user-profile-wrapper {
+  display: flex;
+  margin: 0px 10px;
+}
+
+nav .right__side--nav .user-profile-wrapper img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+nav .right__side--nav .logout-word {
+  cursor: pointer;
+}
+
+nav .left__side--nav a {
+  margin: 5px;
+}
+
+.login__page--wrapper h1 {
+  text-align: center;
+}
+
+.login__page--wrapper img {
+  max-width: 350px;
+  width: 90%;
+}
+
+.login__page--wrapper input {
+  margin-top: 10px;
+}
+
+.home__page--wrapper .answerd__unAnswerd--header span {
+  cursor: pointer;
+  margin: 5px 10px;
+}
+
+.home__page--wrapper .question-card {
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid seagreen;
+  margin: 10px;
+}
+
+.home__page--wrapper .question-card .card-header {
+  background-color: seagreen;
+  width: 100%;
+  margin-top: 0px;
+  padding: 5px 0px;
+}

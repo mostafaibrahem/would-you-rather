@@ -1,0 +1,40 @@
+@mixin spaceBetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin centeredHorizontally {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin centerVertically {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    margin: 5px 10px;
+}
+
+/************MEDIA QUERY ********************/
+$breakpoints: (
+
+  "custom-mobile": 501px, 
+  "tablet": 769px, 
+
+);
+
+@mixin mq($width, $type: max) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}

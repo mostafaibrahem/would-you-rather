@@ -1,0 +1,20 @@
+.home__page--wrapper {
+    .answerd__unAnswerd--header {
+        span{
+            cursor: pointer;
+            margin: 5px 10px;
+        }
+    }
+    .question-card{
+        height: 150px;
+        border-radius: 5px;
+        border: 1px solid seagreen;
+        margin: 10px;
+        .card-header{
+            background-color: seagreen;
+            width: 100%;
+            margin-top: 0px;
+            padding: 5px 0px;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+$color-black: rgb(0, 0, 0);
+$color-white: rgb(255, 255, 255);
+$color-gray-light: #e5e5e5;
+$color-gray-medium: #d9d9d9;
+$color-gray-dark: rgba($color-black, 0.15);
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --color-page-background: #{$color-white};
+  --color-text: #{$color-black};
+  --color-border: #{$color-black};
+  --color-article-background: #{$color-white};
+  --color-article-shadow: #{$color-gray-dark};
+}
+
+.dark {
+  --color-page-background: #{$color-black};
+  --color-text: #{$color-white};
+  --color-border: #{$color-white};
+  --color-article-background: #{$color-gray-light};
+  --color-article-shadow: #{$color-gray-dark};
+}
+
+* {
+  transition: all 0.15s ease;
+}
+
+body {
+  background-color: var(--color-page-background);
+  font: 1.1em/1.4 Dosis;
+  color: var(--color-text);
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  max-width: 40rem;
+  margin: auto;
+  padding: 1rem;
+}
+
+article {
+  padding: 2rem;
+  background-color: var(--color-article-background);
+  box-shadow: 6px 6px 0 0 var(--color-article-shadow);
+}
+h1 {
+  color: unset;
+}
+
+.switch {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  height: 3rem;
+  width: 3rem;
+  background-color: var(--color-black);
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  border-radius: 50%;
+}

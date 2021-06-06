@@ -1,0 +1,28 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .right__side--nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .user-profile-wrapper {
+            display: flex;
+            margin: 0px 10px;
+
+            img {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+            }
+        }
+        .logout-word{
+            cursor: pointer;
+        }
+    }
+    .left__side--nav{
+        a{
+            margin: 5px;
+        }
+    }
+}
