@@ -34,9 +34,10 @@ ul {
 .main-container {
    display: flex;
    justify-content: center;
-   height: 100vh;
+  // height: calc(100vh - 50px);
    align-items: center;
    flex-direction: column;
+   overflow-y: auto;
    //border: 2px solid seagreen;
 
 }

@@ -1,5 +1,5 @@
 import { _getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer } from '../_DATA'
-import { getAllQuestions, getAllUsers } from './actions'
+import { getAllQuestions, getAllUsers, logoutAuthedUser, setAuthedUser } from './actions'
 
 export const getFetchedQuestions = () => {
     return (dispatch) => {
@@ -34,5 +34,20 @@ export const postQuestion = (body,cb) => {
             dispatch(getFetchedUsers())
             cb()
         })
+    }
+}
+
+export const loginUser=(user)=>{
+    return(dispatch)=>{
+        localStorage.setItem('authedUser',JSON.stringify( user))
+        dispatch(setAuthedUser(user))
+    }
+}
+
+export const logoutUser=()=>{
+    return(dispatch)=>{
+        localStorage.setItem('authedUser','')
+        dispatch(logoutAuthedUser())
+
     }
 }

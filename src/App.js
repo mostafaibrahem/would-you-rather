@@ -3,9 +3,24 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import MainLayout from './pages/MainLayout';
 import Error404 from './pages/Error404';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getFetchedQuestions, getFetchedUsers, loginUser } from './store/actionCreators';
 
 
-function App() {
+const App = () => {
+  let authedUserLocal = localStorage.getItem('authedUser')
+  let dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getFetchedUsers())
+    dispatch(getFetchedQuestions())
+    if (authedUserLocal.length > 0) {
+      dispatch(loginUser(JSON.parse(authedUserLocal)))
+
+    }
+  }, [dispatch,authedUserLocal])
+
+
   return (
     <Router>
       <Switch>

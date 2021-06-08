@@ -10,8 +10,8 @@ const Home = () => {
     const [viewData, setViewData] = useState('unanswered')
     const questionsList = useSelector(state => state.questionsData).questionsList
     const currentUser = useSelector(state => state.usersData).currentUser
-    let answerdQuestions = questionsList && Object.keys(questionsList).sort((a, b) => a.timestamp - b.timestamp).map((question, i) => questionsList[question]).filter((item) => (item.optionOne.votes.includes(currentUser.id) || item.optionTwo.votes.includes(currentUser.id)))
-    let unAnswerdQuestions = questionsList && Object.keys(questionsList).sort((a, b) => a.timestamp - b.timestamp).map((question, i) => questionsList[question]).filter((item) => (item.optionOne.votes.includes(currentUser.id) === false && item.optionTwo.votes.includes(currentUser.id) === false))
+    let answerdQuestions = questionsList && Object.keys(questionsList).sort((a, b) => questionsList[b].timestamp - questionsList[a].timestamp).map((question, i) => questionsList[question]).filter((item) => (item.optionOne.votes.includes(currentUser.id) || item.optionTwo.votes.includes(currentUser.id)))
+    let unAnswerdQuestions = questionsList && Object.keys(questionsList).sort((a, b) => questionsList[b].timestamp - questionsList[a].timestamp).map((question, i) => questionsList[question]).filter((item) => (item.optionOne.votes.includes(currentUser.id) === false && item.optionTwo.votes.includes(currentUser.id) === false))
     //console.log({ answerdQuestions })
     //console.log({ unAnswerdQuestions })
     let dataToShow = viewData === 'unanswered' ? unAnswerdQuestions : answerdQuestions
@@ -33,8 +33,11 @@ const Home = () => {
 
                             <p className='card-header'> {item.author} asks: </p>
                             <div>
-                                {item.optionOne.text}
-                                {item.optionTwo.text}
+                                <p>
+                                    <span>{item.optionOne.text}</span>
+                                   <span> or </span> 
+                                     <span> {item.optionTwo.text}</span></p>
+
                             </div>
                             <Link to={`questions/${item.id}`}><button>View Poll</button></Link>
                         </div>

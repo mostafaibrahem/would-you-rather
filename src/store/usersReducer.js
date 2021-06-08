@@ -2,7 +2,7 @@ import * as actions from './actionTypes'
 
 let initialState = {
     users: [],
-    currentUser: null
+    currentUser: {}
 }
 
 export const usersData = (state = initialState, action) => {
@@ -12,7 +12,7 @@ export const usersData = (state = initialState, action) => {
         case actions.SET_AUTHED_USER:
             return { ...state, currentUser: action.payload }
         case actions.LOGOUT_AUTHED_USER:
-            return { ...state, currentUser: null }
+            return { ...state, currentUser: {} }
         default:
             return state
     }

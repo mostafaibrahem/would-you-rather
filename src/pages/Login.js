@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router";
-import { getFetchedUsers } from "../store/actionCreators";
-import { setAuthedUser } from "../store/actions";
+import { Redirect } from "react-router";
+import { getFetchedUsers, loginUser } from "../store/actionCreators";
 import reactReduxImg from '../resources/images/reactredux.jpeg'
 
-const Login = () => {
+const Login = (props) => {
     const [selectedUser, setSelectedUser] = useState(null)
     const dispatch = useDispatch()
-    const history = useHistory()
     let usersData = useSelector((state) => state.usersData)
     let users = usersData.users
 
@@ -20,10 +18,18 @@ const Login = () => {
     const handelSubmit = (event) => {
         event.preventDefault()
         if (selectedUser) {
-            dispatch(setAuthedUser(selectedUser))
-            history.push('/')
+            dispatch(loginUser(selectedUser))
+            //  history.push(from)
+            redirectTopage()
         }
 
+    }
+    const redirectTopage = () => {
+        const { from } = props.location.state || { from: { pathname: '/' } }
+        let authedUserLocal = localStorage.getItem('authedUser')
+        return (
+            authedUserLocal.length > 0 && <Redirect to={from} />
+        )
     }
 
     const onUserChange = (event) => {
@@ -34,9 +40,11 @@ const Login = () => {
     }
 
     return (
-           <form className='main-container login__page--wrapper' onSubmit={(event) => { handelSubmit(event) }}>
+        <>
+            {redirectTopage()}
+            <form className='main-container login__page--wrapper' onSubmit={(event) => { handelSubmit(event) }}>
                 <h1>Login</h1>
-                <img src={reactReduxImg } alt='react-redux' />
+                <img src={reactReduxImg} alt='react-redux' />
                 <select onChange={(event) => onUserChange(event)} defaultValue={0}>
                     <option value={0} disabled>please Select user</option>
                     {Object.keys(users).map((user, i) => {
@@ -49,6 +57,7 @@ const Login = () => {
                 </select>
                 <input type='submit' />
             </form>
+        </>
     );
 }
 
