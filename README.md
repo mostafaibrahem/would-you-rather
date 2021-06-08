@@ -13,12 +13,27 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 you will need to login to be able to :
 
 1- see unanswered questions
+
 2- answer unanswered  questions
+
 3- see answered quetions
+
 4- see question results
+
 5- navigate to leaderBoard
+
 6- navigate to create new questions
+
 7- logout
+
+changes:
+
+1- app will redirect to previous link after login.
+
+2- app will redirect to 404 when typing invalid question in the url.
+
+3- app crash fixed.
+
 
 
 
